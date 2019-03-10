@@ -1,6 +1,9 @@
 # Auth0 Ably demo
 A very simple application that uses Auth0 to protect a route to generate authorization tokens for Ably.  In addition to protecting the route, we are also using an ID token to get information about the connected user.
 
+## Live Demo
+You can check out the live demo using Webtask and a static file host at [Auth0-Playground/Ably](https://auth0-playground.com/ably/#)
+
 # Setup
 
 Start by adding your Auth0 configurations in `/front/config.js` and `/api/config.js`.
