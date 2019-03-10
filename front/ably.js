@@ -1,30 +1,33 @@
-import store from "./Store";
-
 let realtime;
 let channel;
+let ably = {};
+let messages = [];
 
-export function initialize() {
+ably.initialize = function(options) {
   let Ably = window.Ably;
   let lastMessages = [];
   realtime = new Ably.Realtime({
-    authUrl: 'http://localhost:5000/auth',
+    authUrl: options.authUrl,
     authHeaders: {
-      "ably-authorization": `Bearer ${localStorage.getItem("id_token")}`
+      "Authorization": `Bearer ${options.accessToken}`
     }
   });
   realtime.connection.once('connected', function () {
     console.log("Client connected to Ably using JWT");
     channel = realtime.channels.get('auth0-ably');
 
+    UIUpdate.updateChatBox([]);
+
     channel.subscribe("main", (msg) => {
       lastMessages.push(msg);
-      store.updateGlobalState({chatMessages: lastMessages});
+      messages.push(msg);
+      UIUpdate.updateChatBox(messages);
     });
   });
-}
+};
 
-export function publish(msg) {
+ably.publish = function(msg) {
   if (!channel) return console.log("Channel is not opened yet");
   channel.publish("main", msg);
-}
+};
 

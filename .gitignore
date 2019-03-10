@@ -22,3 +22,5 @@ yarn-error.log*
 
 Auth.config.js
 .idea
+
+config.js
