@@ -25,4 +25,4 @@ UIUpdate.updateChatBox = function(messages) {
   chatMessages.innerHTML = messages.map(m => {
     return `[${(new Date(m.timestamp)).toLocaleTimeString("en-CA")}] <em>${m.clientId} said:</em> ${m.data}`;
   }).join("<br>");
-}
+};

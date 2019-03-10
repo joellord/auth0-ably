@@ -38,7 +38,7 @@ app.get("/auth", jwtCheck, (req, res) => {
       data += chunk;
     });
 
-    // The whole response has been received. Print out the result.
+    // The whole response has been received. Create the Ably JWT
     resp.on('end', () => {
       let userInfo = JSON.parse(data);
 

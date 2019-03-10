@@ -14,12 +14,10 @@ auth.logout = () => {
   auth.tokens.ID_TOKEN = "";
 };
 
-// TODO Also check for expiry
 auth.isLoggedIn = () => {
   return !!auth.tokens.ACCESS_TOKEN;
 };
 
-// Connection details for Auth0 - Copy & pasted from the quick start
 let webAuth = new auth0.WebAuth(AUTH0_CONFIG);
 
 // Parses the hash info on redirect and extracts the

@@ -5,7 +5,6 @@ let messages = [];
 
 ably.initialize = function(options) {
   let Ably = window.Ably;
-  let lastMessages = [];
   realtime = new Ably.Realtime({
     authUrl: options.authUrl,
     authHeaders: {
@@ -19,7 +18,6 @@ ably.initialize = function(options) {
     UIUpdate.updateChatBox([]);
 
     channel.subscribe("main", (msg) => {
-      lastMessages.push(msg);
       messages.push(msg);
       UIUpdate.updateChatBox(messages);
     });
