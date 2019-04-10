@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8888";
+const API_URL = "https://wt-13aebf4eeaa9913542725d4a90e4d49e-0.sandbox.auth0-extend.com/auth0-ably";
 const loginBtn = document.querySelector("#loginBtn");
 const logoutBtn = document.querySelector("#logoutBtn");
 const sendBtn = document.querySelector("#sendMessage");
